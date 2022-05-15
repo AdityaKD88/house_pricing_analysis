@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>House Pricing</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  {% block css %}
+  <link rel="stylesheet" href="static/css/style.css">
+  {% endblock %}
+  
+</head>
+<body>
+    <ul class="nav-wrapper">
+        <li class="m1"><a href="/">
+          <span class="t">HOME</span>
+          <span class="d">THIS IS OUR INTRO</span>
+          </a></li>
+        <li class="m2"><a href="/facilities">
+          <span class="t">Facilities</span>
+          <span class="d">This shows different facilities availability</span>
+          </a></li>
+        <li class="m3"><a href="/price">
+          <span class="t">Price</span>
+          <span class="d">It shows price variation</span>
+          </a></li>
+      </ul>
+      {% block body %}{% endblock %}
+      {% block js %}{% endblock %}
+      
+      
+</body>
+</html>

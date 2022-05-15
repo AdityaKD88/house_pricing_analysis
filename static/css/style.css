@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Orbitron");
+html, body {
+  height: 100%;
+}
+
+body {
+  background-image: url("https://i.pinimg.com/originals/02/fc/e8/02fce80656a95f73a78f357d23c9f385.jpg");
+
+  background-size: cover;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  padding-top: 24px;
+}
+
+header {
+  padding: 30px;
+  height: 70px;
+}
+header h1 {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #1c222b;
+}
+
+.content {
+  padding-right: 200px;
+  left: 0px;
+  top: 50px;
+  position: absolute;
+}
+
+.content h2 {
+  font-size: 80px;
+  font-family: Orbitron;
+  margin-top: 52px;
+  color: #9797be;
+}
+
+.content p {
+  font-size: 18px;
+  padding: 10px;
+  color: #d4c361;
+  display: inline-block;
+  border: 1px solid #007CBF;
+}
+
+.app{
+  padding-top: 20px;
+  padding-left: 12%;
+}
+
+
+.nav-wrapper,
+.nav-wrapper li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+.nav-wrapper {
+  height: 125px;
+  background-color: #000;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+.nav-wrapper li a {
+  display: block;
+  height: 125px;
+}
+.nav-wrapper .t,
+.nav-wrapper .d {
+  display: block;
+  padding-top: 20px;
+  padding-left: 15px;
+  font-family: Verdana, Geneva, sans-serif;
+  transition: all 0.2s ease-in-out 0s;
+}
+.nav-wrapper .t {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: bold;
+}
+.nav-wrapper .d {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.nav-wrapper li:hover .t,
+.nav-wrapper li:hover .d {
+  color: #fff;
+}
+.nav-wrapper li {
+  height: 125px;
+  width: 150px;
+  min-width: 150px;
+  background: #f90;
+  float: left;
+  transition: all 0.5s ease-in-out 0s;
+}
+.nav-wrapper li:hover {
+  width: 2000px;
+}
+.nav-wrapper .m1 {
+  background: #8b3eb5;
+}
+.nav-wrapper .m2 {
+  background: #f90;
+}
+.nav-wrapper .m3 {
+  background: #9a2c15;
+}
+.nav-wrapper .m4 {
+  background: #9a2c15;
+}
