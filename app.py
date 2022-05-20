@@ -4,6 +4,8 @@ import plotly
 import plotly.express as px
 from flask import Flask, render_template, request
 from joblib import load
+import numpy as np
+
 app = Flask(__name__)
 
 df = pd.read_csv('Mumbai1.csv')
@@ -112,28 +114,68 @@ def price():
 @app.route('/predict', methods=['GET','POST'])
 def predict():
     if request.method=="POST":
+        print(request.form)
         form = request.form
-        area = int(form.get('area'))
-        bed = int(form.get('bed'))
-        new = int(form.get('new'))
-        gym = int(form.get('gym'))
-        lift = int(form.get('lift'))
-        car = int(form.get('car'))
-        maintain = int(form.get('maintain'))
-        sec = int(form.get('sec'))
-        club = int(form.get('club'))
-        intercom = int(form.get('intercom'))
-        garden = int(form.get('garden'))
-        games = form.get('games')
-        gas = int(form.get('gas'))
-        jog = float(form.get('jog'))
-        swim = int(form.get('swim'))
-        userinp = [[area,bed,new,gym,lift,car,maintain,sec,club,intercom,garden,games,gas,jog,swim]]
+        area = form.get('area')
+        bed = form.get('bedrooms')
+        print(form.get('new_or_resale'))
+        try:
+            new = int(eval(form.get('new_or_resale')))
+        except:
+            new = 0
+        try:
+            gym = int(eval(form.get('gym')))
+        except:
+            gym = 0
+        try:
+            lift = int(eval(form.get('lift')))
+        except:
+            lift = 0
+        try:
+            car = int(eval(form.get('parking')))
+        except:
+            car = 0
+        try:
+            maintain = int(eval(form.get('maintainance')))
+        except:
+            maintain = 0
+        try:
+            sec = int(eval(form.get('security')))
+        except:
+            sec = 0
+        try:
+            club = int(eval(form.get('clubhouse')))
+        except:
+            club = 0
+        try:
+            intercom = int(eval(form.get('intercom')))
+        except:
+            intercom = 0
+        try:
+            garden = int(eval(form.get('garden')))
+        except:
+            garden = 0
+        try:
+            games = int(eval(form.get('games')))
+        except:
+            games = 0
+        try:
+            gas = int(eval(form.get('gas')))
+        except:
+            gas = 0
+        try:
+            jog = int(eval(form.get('track')))
+        except:
+            jog = 0
+        try: 
+            swim = int(eval(form.get('pool')))
+        except:
+            swim = 0
+        print(area,bed,new,gym,lift,car,maintain,sec,club,intercom,garden,games,gas,jog,swim)
+        userinp = np.array([[area,bed,new,gym,lift,car,maintain,sec,club,intercom,garden,games,gas,jog,swim]])
         prediction = model.predict(userinp)
-        output = round(prediction[0], 2)
-        return render_template('predict.html',area=area,bed=bed,new=new,gym=gym,lift=lift,car=car,
-                                maintain=maintain,sec=sec,club=club,intercom=intercom,
-                                garden=garden,games=games,gas=gas,jog=jog,swim=swim,output=output)
+        output = round(prediction[0], 2) // 10
+        return render_template('predict.html',output=output)
     return render_template('predict.html')
 if __name__ == '__main__':
   app.run(host='127.0.0.1', port=8000, debug=True)

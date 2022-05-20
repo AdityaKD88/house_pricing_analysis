@@ -3,16 +3,118 @@
 {% block body %}
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <h2 class="text-center p-3"><u>
-                House Price Prediction
-            </u></h2>
+        <div class="col-md-6">
+            <h2 class="text-center p-3">
+                <u>
+                    House Price Prediction
+                </u>
+            </h2>
             <form method="post" class="card" style="background-color: rgba(255, 255, 255, 0.89);">
                 <div class="card-body">
-                   
-                
+                    <div class="row">
+                        <div class="mb-3 col">
+                            <label for="area" class="form-label">Area in SQFT.</label>
+                            <input type="number" class="form-control" id="area" aria-describedby="area" name="area">
+                        </div>
+                        <div class="mb-3 col">
+                            <label for="bedrooms" class="form-label">No. of Bedrooms</label>
+                            <input type="number" class="form-control" id="bedrooms" aria-describedby="bedrooms"
+                                name="bedrooms">
+                        </div>
+                    </div>
+                    <p class="lead">Features in the Housing</p>
+                    <hr>
+                    <div class="row">
+                        <div class="mb-3 col">
+                            <input type="checkbox" id="new_or_resale" value="True" aria-describedby="new_or_resale"
+                                name="new_or_resale">
+                            <label for="new_or_resale" class="form-label">Resale</label>
+                        </div>
+                        <div class="mb-3 col">
+                            <input type="checkbox" id="gym" value="True" aria-describedby="gym" name="gym">
+                            <label for="gym" class="form-label">Gymnasium</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col">
+                            <input type="checkbox" id="lift" value="True" aria-describedby="lift" name="lift">
+                            <label for="lift" class="form-label">Lift Available</label>
+                        </div>
+                        <div class="mb-3 col">
+                            <input type="checkbox" id="parking" value="True" aria-describedby="parking" name="parking">
+                            <label for="parking" class="form-label">Car Parking</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col">
+                            <input type="checkbox" id="security" value="True" aria-describedby="security"
+                                name="security">
+                            <label for="security" class="form-label">24x7 Security</label>
+                        </div>
+                        <div class="mb-3 col">
+                            <input type="checkbox" id="clubhouse" value="True" aria-describedby="clubhouse"
+                                name="clubhouse">
+                            <label for="clubhouse" class="form-label">Clubhouse</label>
+                        </div>
+                        <div class="mb-3 col">
+                            <input type="checkbox" id="intercom" value="True" aria-describedby="intercom"
+                                name="intercom">
+                            <label for="intercom" class="form-label">Intercom</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col">
+                            <input type="checkbox" id="garden" value="True" aria-describedby="garden" name="garden">
+                            <label for="garden" class="form-label">Landscaped Gardens</label>
+                        </div>
+                        <div class="mb-3 col">
+                            <input type="checkbox" id="games" value="True" aria-describedby="games" name="games">
+                            <label for="games" class="form-label">Indoor Games</label>
+                        </div>
+                        <div class="mb-3 col">
+                            <input type="checkbox" id="gas" value="True" aria-describedby="gas" name="gas">
+                            <label for="gas" class="form-label">Gas Connection</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col">
+                            <input type="checkbox" id="track" value="True" aria-describedby="track" name="track">
+                            <label for="track" class="form-label">Jogging Track</label>
+                        </div>
+                        <div class="mb-3 col">
+                            <input type="checkbox" id="pool" value="True" aria-describedby="pool" name="pool">
+                            <label for="pool" class="form-label">Swimming Pool</label>
+                        </div>
+                        <div class="mb-3 col">
+                            <input type="checkbox" id="maintainance" value="True" aria-describedby="maintainance"
+                                name="maintainance">
+                            <label for="maintainance" class="form-label">Maintenance Staff</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Get Price Prediction</button>
                 </div>
             </form>
+        </div>
+        <div class="col-md-6">
+            <h2 class="text-center p-3">
+                <u>
+                    Predicted Price
+                </u>
+            </h2>
+            {% if output %}
+            <div class="card" style="background-color: rgba(255, 255, 255, 0.89);">
+                <div class="card-body">
+                    <p class="lead">
+                        <span id="predicted_price">
+                            <b>Rs.{{output}}</b>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            {% endif %}
+
         </div>
     </div>
 </div>
