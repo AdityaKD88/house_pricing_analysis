@@ -5,3 +5,4 @@ json
 matplotlib
 plotly-express
 seaborn
+scikit-learn
