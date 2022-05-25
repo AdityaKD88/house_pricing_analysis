@@ -99,7 +99,7 @@ def price():
             labels={
                 'x':'Area',
                 'y':'Price'
-            },height=1000)
+            },height=1000,size='Area')
     graph15 = json.dumps(fig15, cls=plotly.utils.PlotlyJSONEncoder)
 
     fig16 = px.histogram(df,x="No. of Bedrooms", y="Price",color="No. of Bedrooms",
