@@ -5,7 +5,8 @@ html, body {
 
 body {
   background-image: url("https://i.pinimg.com/originals/02/fc/e8/02fce80656a95f73a78f357d23c9f385.jpg");
-
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   background-size: cover;
   font-size: 14px;
   font-family: "Roboto", sans-serif;

@@ -1,3 +1,4 @@
+from turtle import color
 import pandas as pd
 import json
 import plotly
@@ -104,11 +105,19 @@ def price():
     fig16 = px.histogram(df,x="No. of Bedrooms", y="Price",color="No. of Bedrooms",
                             title='Bedrooms vs Price')
     graph16 = json.dumps(fig16, cls=plotly.utils.PlotlyJSONEncoder)
-
-    fig17 = px.scatter(df,x="Location", y="Price",color="Location",
-                            title='Location vs Price')
+    dfa = df.sort_values(by=['Area'])
+    fig17 = px.scatter_3d(
+                        dfa,
+                        x="Location",
+                        y="Price",
+                        z='Area',
+                        color="Location", 
+                        title='Price vs Area per location',
+                        height=1000,
+                        log_y=True,
+                        animation_frame="Location",
+                        )
     graph17 = json.dumps(fig17, cls=plotly.utils.PlotlyJSONEncoder)
-
     return render_template('price.html',graph15=graph15,graph16=graph16,graph17=graph17)
 
 @app.route('/predict', methods=['GET','POST'])

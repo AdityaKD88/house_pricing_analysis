@@ -1,16 +1,41 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<style>
+    @keyframes zoom_in_out {
+        from {
+            transform: scale(.9);
+            color: rgb(252, 252, 252);
+        }
 
+        to {
+            transform: scale(1.1);
+            color: rgb(248, 5, 5);
+        }
+
+    }
+
+    .hero {
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-weight: bolder;
+        color: white;
+        text-shadow: 2px 2px 4px #000000;
+        animation: zoom_in_out 1s ease-in-out infinite alternate;
+    }
+</style>
 <div class="conatiner">
-    <h1 style="text-align: center;">House Pricing Analysis</h1>
+
     <div class="row">
         <div class="col">
-            <img src="https://www.reno.gov/Home/ShowImage?id=7739&t=635620964226970000" style="padding-left: 15%; padding-top: 30px;">
+            <h1 class="display-1 hero">House Pricing Analysis App</h1>
         </div>
     </div>
 </div>
 
 {% endblock %}
-
-
